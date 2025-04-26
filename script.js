@@ -70,23 +70,13 @@ function renderPlayers() {
         }
     });
 
-    const usedPlayers = new Set();
     const shuffled = [...players].sort(() => Math.random() - 0.5);
+    const usedPlayers = new Set();
     const newMatchups = [];
 
-    // Handle odd player: figure out who should play twice (the one with fewest "twice" so far)
-    let extraPlayer = null;
-    if (players.length % 2 !== 0) {
-        extraPlayer = Object.entries(playedTwiceCount)
-            .sort(([, a], [, b]) => a - b)[0][0]; // Player who played twice the least
-    }
+    let leftoverPlayer = null;
 
-    // Remove extraPlayer from pool initially
-    if (extraPlayer) {
-        shuffled.splice(shuffled.indexOf(extraPlayer), 1);
-    }
-
-    // Match up players preferring NEW matchups
+    // Main pairing loop
     while (shuffled.length >= 2) {
         const p1 = shuffled.pop();
         let p2Index = shuffled.findIndex(p2 => !pastMatchSet.has([p1, p2].sort().join("|")));
@@ -108,45 +98,31 @@ function renderPlayers() {
         pastMatchSet.add(key);
     }
 
-    // If someone is left after pairing (should only be the extra player)
+    // If one player left over
     if (shuffled.length === 1) {
-        const lonely = shuffled.pop();
-        const possibleOpponents = players.filter(p => p !== lonely);
-        const opponent = possibleOpponents.sort((a, b) => {
-            // Prefer player who hasn't played twice yet
-            return playedTwiceCount[a] - playedTwiceCount[b];
-        })[0];
-
-        const key = [lonely, opponent].sort().join("|");
-
-        newMatchups.push({
-            p1: lonely,
-            p2: opponent,
-            p1Score: 0,
-            p2Score: 0,
-            isRepeat: pastMatchSet.has(key)
-        });
-        playedTwiceCount[opponent]++;
-        pastMatchSet.add(key);
+        leftoverPlayer = shuffled.pop();
     }
 
-    // Now extra player (if any) plays against someone who already matched
-    if (extraPlayer) {
-        const possibleOpponents = players.filter(p => p !== extraPlayer);
-        const opponent = possibleOpponents.sort((a, b) => {
+    // After everyone played once, schedule the leftover player to play a second match
+    if (leftoverPlayer) {
+        const eligibleOpponents = players.filter(p => p !== leftoverPlayer);
+        const opponent = eligibleOpponents.sort((a, b) => {
+            // Prefer opponent who has had to play twice the fewest times
             return playedTwiceCount[a] - playedTwiceCount[b];
         })[0];
 
-        const key = [extraPlayer, opponent].sort().join("|");
+        const key = [leftoverPlayer, opponent].sort().join("|");
 
         newMatchups.push({
-            p1: extraPlayer,
+            p1: leftoverPlayer,
             p2: opponent,
             p1Score: 0,
             p2Score: 0,
             isRepeat: pastMatchSet.has(key)
         });
-        playedTwiceCount[extraPlayer]++;
+
+        playedTwiceCount[leftoverPlayer]++;
+        playedTwiceCount[opponent]++;
         pastMatchSet.add(key);
     }
 
