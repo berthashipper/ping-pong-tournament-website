@@ -1,0 +1,272 @@
+body {
+    font-family: 'Segoe UI', sans-serif;
+    margin: 0;
+    background-color: #f5f7fa;
+}
+
+header {
+    background-color: #6A1E14; /* Deep Red */
+    color: white;
+    padding: 15px 20px;
+    position: sticky;
+    top: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 10;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+h1, h2 {
+    margin: 10px 0;
+    font-weight: bold;
+}
+
+main {
+    display: flex;
+    justify-content: flex-start; /* Align left, but allow stretching */
+    padding: 20px;
+    width: calc(100% - 40px); /* Adjust width to account for left and right padding */
+    margin: 0 auto; /* Center the content horizontally */
+    gap: 20px; /* Optional: can remove the gap */
+}
+
+section {
+    flex-grow: 1; /* Allow sections to grow and fill the space */
+    margin: 15px; /* Optional: Adjust margin for spacing between sections */
+}
+
+section {
+    background: white;
+    padding: 20px;
+    margin: 15px;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    flex: 1 1 300px;
+    max-width: none;
+    transition: box-shadow 0.3s ease-in-out;
+}
+
+section:hover {
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+
+section#scoreboard-section {
+    flex: 0 0 280px; /* Keep scoreboard section smaller */
+}
+
+input, button {
+    padding: 10px;
+    margin: 5px 5px 5px 0;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+}
+
+button {
+    cursor: pointer;
+    background-color: #C44B42; /* Red */
+    color: white;
+    border: none;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #EA675D; /* Lighter Red */
+}
+
+#player-list li {
+    background-color: #f2f2f2;
+    margin: 8px 0;
+    padding: 10px 15px;
+    border-radius: 6px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: background-color 0.3s;
+}
+
+#player-list li:hover {
+    background-color: #f5e1e1; /* Soft red */
+}
+
+#scoreboard {
+    list-style: none;
+    padding: 20px;
+    margin-left: 20px;
+    max-width: 260px;
+    background: linear-gradient(135deg, #fff8e7, #ffefc2);
+    border-radius: 16px;
+    box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+    border: 3px solid gold;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Highlighted player style */
+#scoreboard li.selected {
+    background: linear-gradient(to right, #ffeb88, #ffeb88);
+    border-color: #ffcc00;
+    box-shadow: 0 0 12px rgba(255, 204, 0, 0.8);
+    transform: scale(1.03);
+    color: #6A1E14;
+}
+
+#scoreboard li {
+    padding: 14px;
+    margin: 10px 0;
+    background: linear-gradient(to right, #fff7d1, #fff2b2);
+    border-left: 8px solid gold;
+    font-family: 'Georgia', serif;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 10px;
+    transition: transform 0.3s, background-color 0.3s;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #6A1E14;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+#scoreboard li:hover {
+    background: linear-gradient(to right, #fff1a8, #ffe88b);
+    transform: scale(1.02);
+}
+
+/* Bonus: subtle glow on hover */
+#scoreboard li:hover {
+    box-shadow: 0 4px 10px rgba(255, 215, 0, 0.5);
+}
+
+
+.round {
+    border-left: 5px solid #6A1E14; /* Red Border */
+    background-color: #ffeaea; /* Soft Red Background */
+    padding: 12px;
+    margin: 15px 0;
+    border-radius: 8px;
+    transition: background-color 0.3s;
+}
+
+.round:hover {
+    background-color: #ffdad6; /* Lighter Red */
+}
+
+.match {
+    background-color: #ffffff;
+    border: 1px solid #cce;
+    padding: 10px;
+    border-radius: 6px;
+    margin-bottom: 8px;
+}
+
+.score-input {
+    width: 60px;
+    margin-left: 8px;
+    padding: 6px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+}
+
+#generate-round-button {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    padding: 15px 20px;
+    font-size: 16px;
+    border-radius: 50px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    background-color: #C44B42; /* Red */
+    color: white;
+    font-weight: bold;
+    z-index: 100;
+    transition: background-color 0.3s;
+}
+
+#generate-round-button:hover {
+    background-color: #EA675D; /* Lighter Red */
+}
+
+#reset-button {
+    background-color: #EA675D; /* Light Red */
+    padding: 12px 15px;
+    border-radius: 8px;
+    color: white;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+#reset-button:hover {
+    background-color: #d93636; /* Darker Red */
+}
+
+#player-list li button {
+    background: #EA675D; /* Light Red */
+    border: none;
+    color: white;
+    padding: 6px 12px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s;
+}
+
+#player-list li button:hover {
+    background: #e53d3d; /* Darker Red */
+}
+
+/* X button style for player list */
+#player-list li button {
+    font-size: 14px;
+    padding: 5px;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    background-color: #D93636; /* Dark Red */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    cursor: pointer;
+    border: none;
+    font-weight: bold;
+}
+
+#player-list li button:hover {
+    background-color: #B82F2F; /* Slightly darker on hover */
+}
+
+/* Responsive Layout */
+@media (max-width: 768px) {
+    main {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    section {
+        max-width: 100%;
+    }
+
+    #generate-round-button {
+        bottom: 10px;
+        right: 10px;
+        padding: 12px 18px;
+    }
+
+    #scoreboard {
+        max-width: 300px;
+    }
+}
+
+section#add-players {
+    order: 1;
+}
+
+section#rounds {
+    order: 2;
+}
+
+section#scoreboard-section {
+    order: 3;
+}
