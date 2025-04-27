@@ -3,9 +3,9 @@
 
 ## Overview
 
-**Problem:** At our college, my club faced several challenges when organizing and managing large tournaments. We often struggled with coordinating players, managing scores, generating matchups, and ensuring that everyone had a fair and enjoyable experience. As the tournament grew in size, it became clear that our existing systems were not scalable and efficient.
+**Problem:** My college club faced significant challenges when organizing and managing large tournaments. We often struggled with coordinating players, managing scores, generating matchups, and ensuring that everyone had a fair and streamlined experience. As our tournaments grew in size, it became clear that our existing systems were not scalable, efficient, or sustainable.
 
-**Solution:** I designed a custom **Tournament Manager** to streamline and automate the tournament management process. The goal was to create a simple, usable interface that would handle all necessary tasks seamlessly. The system is designed to be scalable, enabling future club leaders to run tournaments with ease and minimal effort. This project represents a rebuild of my earlier [Python-based prototype](https://github.com/berthashipper/Tournament-Manager-Application), emphasizing the real needs of our club leaders.
+**Solution:** I designed a custom **Tournament Manager** to streamline and automate the tournament management process. The goal was to create a simple, usable interface that would handle all necessary tasks seamlessly. The system is designed to be intuitive, enabling future club leaders to run tournaments with ease and minimal effort. This project represents a rebuild of my earlier [Python-based prototype](https://github.com/berthashipper/Tournament-Manager-Application), emphasizing the real needs of our club leaders.
 
 This JavaScript script implements a lightweight tournament management system that:
 
@@ -127,11 +127,11 @@ Handles round generation with **fairness** and **repeat avoidance**:
 | Feature              | Advantage                                                      |
 |----------------------|----------------------------------------------------------------|
 | Persistent Storage   | Tournament can continue across sessions                       |
-| Fresh Matchups       | Increases variety and fairness                                |
+| Fresh Matchups       | Increases variety and fairness without the manual process required to track this                                |
 | Repeat Tracking      | Visual indication of rematches                               |
 | Fair Extra Matches   | Balances load for odd player counts                           |
-| Live Score Updates   | Instant, accurate leaderboard updates                         |
-| Easy Reset           | Quick cleanup for new events                                  |
+| Live Score Updates   | Instant, accurate leaderboard updates — no manual addition necessary                         |
+| Easy Reset           | Quick cleanup for new events, with confirmation to ensure data isn't cleared accidentally                                  |
 | UI Interactions      | Smooth and intuitive experience                               |
 
 ## Conclusion
