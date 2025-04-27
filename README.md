@@ -2,9 +2,9 @@
 
 ## Overview
 
-At our college, my club faced several challenges when organizing and managing large tournaments. We often struggled with coordinating players, managing scores, generating matchups, and ensuring that everyone had a fair and enjoyable experience. As the tournament grew in size, it became clear that our existing systems were not scalable and efficient.
+**Problem:** At our college, my club faced several challenges when organizing and managing large tournaments. We often struggled with coordinating players, managing scores, generating matchups, and ensuring that everyone had a fair and enjoyable experience. As the tournament grew in size, it became clear that our existing systems were not scalable and efficient.
 
-To solve this problem, I designed this **Tournament Manager** to streamline and automate the tournament management process. The goal was to create a simple, user-friendly interface that would handle all the necessary tasks seamlessly. The system is designed to be scalable, enabling future club leaders to run tournaments with ease and minimal effort.
+**Solution:** I designed a custom **Tournament Manager** to streamline and automate the tournament management process. The goal was to create a simple, usable interface that would handle all necessary tasks seamlessly. The system is designed to be scalable, enabling future club leaders to run tournaments with ease and minimal effort. This project represents a rebuild of my earlier [Python-based prototype](https://github.com/berthashipper/Tournament-Manager-Application), emphasizing the real needs of our club leaders.
 
 This JavaScript script implements a lightweight tournament management system that:
 
